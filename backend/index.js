@@ -5,6 +5,11 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const port = process.env.PORT || 5000;
 
+// Start Backend: 
+// nodemon indext.js
+// Updating:
+// npm run start:dev
+
 // parse options
 app.use(express.json());
 app.use(cors());
