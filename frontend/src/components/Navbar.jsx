@@ -48,7 +48,7 @@ const Navbar = () => {
                 {navLists.map((list, index) => (
                 <li className='mt-5 px-4' key={index}>
                 <NavLink
-                onClick={()=> setIsMenuOpen=(false)}
+                onClick={() => setIsMenuOpen(false)}
                  to={list.path}
                     className={({ isActive }) =>
                     isActive ? "active" : ""
@@ -56,7 +56,7 @@ const Navbar = () => {
                 >{list.name}</NavLink>
                 </li>
                 ))}
-                <li className='px-4 mt-5'><NavLink onClick={()=> setIsMenuOpen=(false)} to="/login">Login</NavLink></li>
+                <li className='px-4 mt-5'><NavLink onClick={() => setIsMenuOpen(false)} to="/login">Login</NavLink></li>
             </ul>
             )
         }

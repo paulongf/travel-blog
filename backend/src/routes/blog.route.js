@@ -48,11 +48,8 @@ router.get('/', async (req, res)=> {
                     location
             }
         }
-        const post = await Blog.find(query).populate('author', 'email').sort({createdAt: -1});
-        res.status(200).send({
-            message: "All posts retrieved successfully",
-            posts: post
-        })
+        const posts = await Blog.find(query).populate('author', 'email').sort({createdAt: -1});
+        res.status(200).send(posts)
 
     }catch (error){
         console.error("Error finding post.", error);
