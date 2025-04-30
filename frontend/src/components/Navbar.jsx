@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import {NavLink} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 import { IoMenuSharp, IoClose } from "react-icons/io5";
+import avatarImg from "../assets/commentor.png"
 
 const navLists = [
     {name: "Home", path: "/"},
@@ -12,6 +14,19 @@ const navLists = [
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    const {user} = useSelector((state) => state.auth);
+    const dispatch = useDispatch()
+
+    const handleLogout = async () => {
+          try {
+            await logoutUser().unwrap();
+            dispatch(logout())
+    
+          } catch (err) {
+            console.error("Failed to logout:", err);
+          }
+        };
+    
 
 
   return (
@@ -30,7 +45,16 @@ const Navbar = () => {
                 >{list.name}</NavLink>
                 </li>
                 ))}
-                <li><NavLink to="/login">Login</NavLink></li>
+                {/* Render btn based on user login activity*/ }
+                {
+                    user && user.role === "admin" ? (<li>
+                        <img src={avatarImg} alt="User Image" className='size-8'/>
+                    </li>) : 
+                    (  
+                        <li><NavLink to="/login">Login</NavLink></li>
+                    )
+                }
+              
             </ul>
             {/* toggle menu */}
             <div className='flex items-center sm:hidden'>

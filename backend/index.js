@@ -4,23 +4,28 @@ const cors = require('cors');
 require('dotenv').config();
 const mongoose = require('mongoose');
 const port = process.env.PORT || 5000;
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser')
 
 // Start Backend: 
 // nodemon indext.js
 // Updating:
 // npm run start:dev
 
-// parse options
+// Middleware setup
 app.use(express.json());
-app.use(cors({
+app.use(cookieParser());
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
+app.use(cors({ 
   origin: 'http://localhost:5173',
-  credentials: true
+  credentials: true,
 }));
 
 // routes
 const blogRoutes = require('./src/routes/blog.route');
 const commentRoutes = require("./src/routes/comment.route");
-const userRoutes = require("./src/routes/auth.user.route");
+const userRoutes = require("./src/routes/auth.user");
 
 app.use("/api/auth", userRoutes);
 app.use("/api/blogs", blogRoutes);

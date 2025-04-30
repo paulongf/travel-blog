@@ -1,7 +1,9 @@
 const express = require('express');
-const User = require('../model/user.model')
 const router = express.Router();
-const generateToken = require('../middleware/generateToken')
+const jwt = require('jsonwebtoken');
+const User = require('../model/user.model');
+const generateToken = require('../middleware/generateToken');
+require('dotenv').config()
 
 
 // Register a new user
