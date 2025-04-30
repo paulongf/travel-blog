@@ -13,7 +13,7 @@ function App() {
       <div className='flex-grow'>
         <Outlet/>
       </div>
-      <footer className='m-auto'>Footer</footer>
+      <footer className='m-auto bg-white w-full text-center py-3'>Footer</footer>
     </div>
    </>
     

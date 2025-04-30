@@ -1,16 +1,28 @@
 @import "tailwindcss";
 
 :root {
-    --bg-primary: #F7F8F9;
+    --bg-primary: #F0F1F2;
     --primary: #222222;
     --accent: #34495E;
   }
 
 
   .bgPrimary{
-    background-color: #F7F8F9;
+    background-color: #F0F1F2 !important;
+  }
+
+  .buttonColor{
+    background-color: #222222;
+  }
+
+  .buttonColor:hover{
+    background-color: #1E73BE;
   }
 
   .text-primary{
     color: #222222;
+  }
+
+  hr{
+    color: #F0F1F2;
   }
