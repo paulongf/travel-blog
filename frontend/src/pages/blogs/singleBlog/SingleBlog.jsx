@@ -8,6 +8,7 @@ import RelatedBlogs from './RelatedBlogs';
 const SingleBlog = () => {
     const {id} = useParams();
     const {data: blog, error, isLoading} = useFetchBlogByIdQuery(id);
+    console.log(blog)
 
   return (
     <div className='text-primary container mx-auto mt-8'>

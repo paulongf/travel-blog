@@ -67,10 +67,9 @@ router.get("/:id",  async(req, res)=>{
             return res.status(404).send({message: "Post not found"})
         }
 
-        const comment = await Comment.find({postId: postId}).populate('user', "username email")
+        const comments = await Comment.find({postId: postId}).populate('user', "username email")
         res.status(200).send({
-            message: "Post retrieved successfully",
-            post: post
+           post, comments
         });
 
     } catch (error){

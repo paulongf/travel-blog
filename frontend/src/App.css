@@ -23,6 +23,17 @@
     color: #222222;
   }
 
-  hr{
-    color: #F0F1F2;
+  hr {
+    color: #dcdedf;
+    background-color: #dcdedf;
+    border: none;
+    height: 1px;
+  }
+
+  .borderColor{
+    border: 1px solid #F0F1F2;
+  }
+
+  .borderNav{
+    border-bottom: 1px solid #F0F1F2;
   }

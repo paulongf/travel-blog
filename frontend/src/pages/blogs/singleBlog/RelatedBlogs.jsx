@@ -16,7 +16,7 @@ const RelatedBlogs = () => {
             (<div className='space-y-4 mt-5'>
                 {
                     blogs.map((blog) => (
-                        <Link 
+                        <Link key={blog._id}
                         to={`/blogs/${blog?._id}`}
                         className='flex flex-col sm:flex-row sm:items-center gap-4
                          shadow-sm px-8 py-4'>
