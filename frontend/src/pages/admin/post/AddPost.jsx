@@ -1,22 +1,85 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 
 const AddPost = () => {
+  const {user} = useSelector((state) => state.auth);
   const [title, setTitle] = useState('');
+  const [coverImg, setCoverImg] = useState("");
+  const [metaDescription, setMetaDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [rating, setRating] = useState(0);
+  const [message, setMessage] = useState("");
+
   return (
     <div className='bg-white md:p-8 p-2'>
       <h2 className='text-2xl font-semibold'>Create A New Blog Post</h2>
       <form className='space-y-5 pt-8'>
         <div className='space-y-4'>
-          <label className='font-semibold text-xl'>Blog Title: </label>
+          <label className='font-semibold text-xl mb-2'>Blog Title: </label>
           <input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className='w-full inline-block bgPrimary focus:outline-none px-5 py-3'
+          className='w-full inline-block bgPrimary focus:outline-none mt-3 px-5 py-2'
            type='text' placeholder='Ex: Marina del Rey Marriot...' required/>
         </div>
         {/* Blog Details */}
-        <div>
+        <div className='flex flex-col md:flex-row justify-between items-start gap-4'>
+        {/* Left side */}
+        <div className='md:w-2/3 w-full'>
+        <p className='font-semibold text-xl mb-5'>Content Section</p>
+        <p className=''>Write your post below here...</p>
+        </div>
+        {/* Right side */}
+        <div className='md:w-1/3 w-full borderColor p-5 space-y-5'>
+          <p className='text-xl font-semibold'>Choose Blog Format</p>
+          {/* Images */}
+          <div className='space-y-4'>
+            <label className='font-semibold text-xl mb-2'>Blog Cover: </label>
+            <input
+            value={coverImg}
+            onChange={(e) => setCoverImg(e.target.value)}
+            className='w-full inline-block bgPrimary focus:outline-none mt-3 px-5 py-2'
+            type='text' placeholder='http://unplash.com/image/cover-photo.png' required/>
+        </div>
+         {/* Category */}
+         <div className='space-y-4'>
+            <label className='font-semibold text-xl mb-2'>Category: </label>
+            <input
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className='w-full inline-block bgPrimary focus:outline-none mt-3 px-5 py-2'
+            type='text' placeholder='Rooftop/Travel/Natural' required/>
+        </div>
+         {/* MetaDescription */}
+         <div className='space-y-4'>
+            <label className='font-semibold text-xl mb-2'>Meta Description: </label>
+            <textarea
+            value={metaDescription}
+            cols={4}
+            rows={4}
+            onChange={(e) => setMetaDescription(e.target.value)}
+            className='w-full inline-block bgPrimary focus:outline-none mt-3 px-5 py-2'
+            type='text' placeholder='Write your blog meta description' required/>
+        </div>
+         {/* Rating */}
+         <div className='space-y-4'>
+            <label className='font-semibold text-xl mb-2'>Rating: </label>
+            <input
+            value={rating}
+            onChange={(e) => setRating(e.target.value)}
+            className='w-full inline-block bgPrimary focus:outline-none mt-3 px-5 py-2'
+            type='number'  required/>
+        </div>
+        {/* Author */}
+        <div className='space-y-4'>
+            <label className='font-semibold text-xl mb-2'>Author: </label>
+            <input
+            value={user.username}
+            className='w-full inline-block bgPrimary focus:outline-none mt-3 px-5 py-2'
+            type='text'  disabled placeholder={`user.username (not editable)`}/>
+        </div>
 
+        </div>
         </div>
       </form>
     </div>
