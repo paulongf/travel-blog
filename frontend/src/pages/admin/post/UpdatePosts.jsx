@@ -87,7 +87,7 @@ const UpdatePosts = () => {
           <input
             type="text"
             defaultValue={blog?.post?.title}
-            className="w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3"
+            className="w-full inline-block bgPrimary focus:outline-none px-5 py-3"
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Ex: Marina del Rey Marriott"
             required
@@ -108,7 +108,7 @@ const UpdatePosts = () => {
               <input
                 type="text"
                 defaultValue={blog?.post?.coverImg}
-                className="w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3"
+                className="w-full inline-block bgPrimary focus:outline-none px-5 py-3"
                 onChange={(e) => setCoverImg(e.target.value)}
                 placeholder="Ex: https://unsplash.com/photos/a-wooden-table.png"
                 required
@@ -120,7 +120,7 @@ const UpdatePosts = () => {
               <input
                 type="text"
                 defaultValue={blog?.post?.category}
-                className="w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3"
+                className="w-full inline-block bgPrimary focus:outline-none px-5 py-3"
                 onChange={(e) => setCategory(e.target.value)}
                 placeholder="Rooftop/Gardening/something"
                 required
@@ -134,7 +134,7 @@ const UpdatePosts = () => {
                 cols={4}
                 rows={4}
                 defaultValue={blog?.post?.description}
-                className="w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3"
+                className="w-full inline-block bgPrimary focus:outline-none px-5 py-3"
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Add Meta Data to increase SEO performance..."
                 required
@@ -146,7 +146,7 @@ const UpdatePosts = () => {
               <input
                 type="number"
                 defaultValue={blog?.post?.rating}
-                className="w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3"
+                className="w-full inline-block bgPrimary focus:outline-none px-5 py-3"
                 onChange={(e) => setRating(e.target.value)}
                 placeholder="add rating: 5"
                 required
@@ -158,7 +158,7 @@ const UpdatePosts = () => {
               <input
                 type="text"
                 value={user.username}
-                className="w-full inline-block bg-bgPrimary focus:outline-none px-5 py-3"
+                className="w-full inline-block bgPrimary focus:outline-none px-5 py-3"
                 placeholder={`${user.username} (not editable)`}
                 disabled
               />
