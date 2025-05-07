@@ -118,14 +118,14 @@ const ManageUser = () => {
                         <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           <button
                             onClick={() => handleEdit(user)}
-                            className="flex gap-1 items-center hover:text-blue-700"
+                            className="flex gap-1 items-center cursor-pointer hover:text-blue-700"
                           >
                             <MdModeEdit /> Edit
                           </button>
                         </td>
                         <td className="border-t-0  px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           <button
-                            className="bg-red-600 text-white px-2 py-1"
+                            className="bg-red-600 cursor-pointer text-white px-2 py-1"
                             onClick={() => handleDelete(user?._id)}
                           >
                             Delete

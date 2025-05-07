@@ -84,13 +84,13 @@ const ManagePosts = () => {
                         {formatDate(blog.createdAt)}
                       </td>
                       <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <Link to={`/dashboard/update-items/${blog._id}`} className="hover:text-blue-700">
+                        <Link to={`/dashboard/update-items/${blog._id}`} className="hover:text-blue-700 cursor-pointer">
                         <span className="flex gap-1 items-center justify-center"><MdModeEdit />
                         Edit</span>
                         </Link>
                       </td>
                       <td className="border-t-0  px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <button className="bg-red-600 text-white px-2 py-1"
+                        <button className="bg-red-600 cursor-pointer text-white px-2 py-1"
                         onClick={() => handleDelete(blog._id)}
                         >Delete</button>
                       </td>
