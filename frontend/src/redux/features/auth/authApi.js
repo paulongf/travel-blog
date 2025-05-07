@@ -1,9 +1,18 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+// Função para determinar a URL base com base no ambiente
+const getBaseUrl = () => {
+  if (window.location.hostname === "localhost") {
+    return "http://localhost:5000/api/auth/";
+  } else {
+    return "https://reviewspopcorn-czbqgcb0g2cucpb0.westeurope-01.azurewebsites.net/api/auth/"; // substitua com sua URL real do Azure
+  }
+};
+
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api/auth/",
+    baseUrl: getBaseUrl(),
     credentials: "include",
   }),
   endpoints: (builder) => ({

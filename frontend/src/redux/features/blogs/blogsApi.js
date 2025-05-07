@@ -1,13 +1,24 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+// Função para determinar a URL base com base no ambiente
+const getBaseUrl = () => {
+  if (window.location.hostname === "localhost") {
+    return "http://localhost:5000/api/";
+  } else {
+    return "https://reviewspopcorn-czbqgcb0g2cucpb0.westeurope-01.azurewebsites.net/api/"; // substitua com sua URL real do Azure
+  }
+};
+
 export const blogsApi = createApi({
   reducerPath: 'blogsApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000/api/',  credentials: 'include'}),
+  baseQuery: fetchBaseQuery({ 
+    baseUrl: getBaseUrl(),
+    credentials: 'include',
+  }),
   tagTypes: ['Blogs'],
   endpoints: (builder) => ({
-
     fetchBlogs: builder.query({
-      query: ({ search = '', category = '', location='' }) => `blogs?search=${search}&category=${category}&location=${location}`,
+      query: ({ search = '', category = '', location = '' }) => `blogs?search=${search}&category=${category}&location=${location}`,
       providesTags: ['Blogs'],
     }),
 
@@ -56,6 +67,6 @@ export const {
   useFetchBlogByIdQuery, 
   usePostBlogMutation, 
   useUpdateBlogMutation, 
-  useDeleteBlogMutation ,
+  useDeleteBlogMutation,
   useFetchRelatedBlogsQuery,
 } = blogsApi;
