@@ -8,7 +8,6 @@ const getBaseUrl = () => {
     return "https://reviewspopcorn-czbqgcb0g2cucpb0.westeurope-01.azurewebsites.net/api/"; // substitua com sua URL real do Azure
   }
 };
-
 export const blogsApi = createApi({
   reducerPath: 'blogsApi',
   baseQuery: fetchBaseQuery({ 
