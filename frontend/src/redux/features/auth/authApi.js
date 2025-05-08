@@ -5,7 +5,7 @@ const getBaseUrl = () => {
   if (window.location.hostname === "localhost") {
     return "http://localhost:5000/api/auth/";
   } else {
-    return "https://cineview-d2h3gndzdsc0cbfk.westeurope-01.azurewebsites.net/api/auth/"; // substitua com sua URL real do Azure
+    return "https://popcinereviews-bgasg2ajd2c0btgk.westeurope-01.azurewebsites.net/api/auth/"; // substitua com sua URL real do Azure
   }
 };
 
